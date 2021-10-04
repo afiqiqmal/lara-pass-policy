@@ -3,6 +3,7 @@
 namespace Afiqiqmal\LaraPassPolicy\Models\Traits;
 
 use Afiqiqmal\LaraPassPolicy\Exceptions\PasswordHistoryException;
+use Afiqiqmal\LaraPassPolicy\Notifications\PasswordChangeReminder;
 use Illuminate\Support\Facades\Hash;
 
 trait HasPasswordPolicy
@@ -35,6 +36,11 @@ trait HasPasswordPolicy
     public function getLastPassword(): ?string
     {
         return $this->passwordHistories()->latest()->first()->password ?? null;
+    }
+
+    public function sendEmailPasswordChangeReminderNotification()
+    {
+        $this->notify(new PasswordChangeReminder());
     }
 
     public function isPasswordHistoryMatchWith($new_password): bool
