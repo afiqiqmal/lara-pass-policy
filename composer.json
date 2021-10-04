@@ -1,0 +1,56 @@
+{
+    "name": "afiqiqmal/lara-pass",
+    "description": "Laravel Password History",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Hafiq",
+            "email": "hafiqiqmal93@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.4|^8.0",
+        "illuminate/contracts": "^7 || ^8",
+        "illuminate/support": "^7 || ^8",
+        "illuminate/auth": "^7 || ^8",
+        "illuminate/notification": "^7 || ^8"
+    },
+    "require-dev": {
+        "nunomaduro/collision": "^5.3",
+        "orchestra/testbench": "^6.15",
+        "pestphp/pest": "^1.18",
+        "pestphp/pest-plugin-laravel": "^1.1",
+        "spatie/laravel-ray": "^1.23",
+        "vimeo/psalm": "^4.8"
+    },
+    "autoload": {
+        "psr-4": {
+            "Afiqiqmal\\LaraPassPolicy\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Afiqiqmal\\LaraPassPolicy\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "./vendor/bin/pest --no-coverage",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Afiqiqmal\\LaraPassPolicy\\LaraPassPolicyServiceProvider"
+            ],
+            "aliases": {
+                "LaraPassPolicy": "Afiqiqmal\\LaraPassPolicy\\LaraPassPolicyFacade"
+            }
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
