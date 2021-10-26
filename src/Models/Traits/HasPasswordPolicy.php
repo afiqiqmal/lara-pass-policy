@@ -61,16 +61,8 @@ trait HasPasswordPolicy
 
         $new_password = Hash::make($new_password);
 
-        if ($this->forceFill([
+        return $this->forceFill([
             'password' => $new_password,
-        ])->save()) {
-            $this->passwordHistories()->create([
-                'password' => $new_password
-            ]);
-
-            return true;
-        }
-
-        return false;
+        ])->save();
     }
 }
