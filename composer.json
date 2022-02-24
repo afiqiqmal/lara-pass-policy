@@ -11,9 +11,9 @@
     ],
     "require": {
         "php": "^7.4|^8.0",
-        "illuminate/contracts": "^7 || ^8",
-        "illuminate/support": "^7 || ^8",
-        "illuminate/auth": "^7 || ^8"
+        "illuminate/contracts": "^7 || ^8 || ^9",
+        "illuminate/support": "^7 || ^8 || ^9",
+        "illuminate/auth": "^7 || ^8 || ^9"
     },
     "require-dev": {
         "nunomaduro/collision": "^5.3",
@@ -38,7 +38,10 @@
         "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
     },
     "config": {
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
     },
     "extra": {
         "laravel": {
