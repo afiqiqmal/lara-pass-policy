@@ -51,6 +51,13 @@ protected $routeMiddleware = [
 
 ```
 
+#### You may want to disable password policy on specific environment (ex. in `local`) setting this variable in `.env ` file:
+
+```ini
+# Se to false to disable password policy.
+PASSWORD_POLICY_ENABLED=false
+```
+
 ## Credits
 
 - [Hafiq](https://github.com/afiqiqmal)

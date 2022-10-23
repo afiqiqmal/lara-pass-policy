@@ -12,7 +12,7 @@ return [
    |
    */
 
-    'enabled' => true,
+    'enabled' => env('PASSWORD_POLICY_ENABLED', true),
 
     /*
     |--------------------------------------------------------------------------
