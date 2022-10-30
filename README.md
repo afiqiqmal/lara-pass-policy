@@ -41,7 +41,7 @@ class User extends Authenticable implements MustVerifyPasswordPolicy
 ```
 
 #### Add Middleware
-add `EnsurePasswordIsChanged` middleware in `$routeMiddleware`
+Add `EnsurePasswordIsChanged` middleware in `$routeMiddleware`
 ```php
 protected $routeMiddleware = [
     ...
@@ -50,8 +50,17 @@ protected $routeMiddleware = [
 ];
 
 ```
+so you can attach it to your routes:
 
-#### You may want to disable password policy on specific environment (ex. in `local`) setting this variable in `.env ` file:
+```php
+// routes/web.php
+
+Route::middleware(['auth', 'password_changed'])->group(function () {
+    return view('welcome');
+});
+```
+
+#### You may want to disable password policy on specific environment (ex. `local`) setting this variable in `.env` file:
 
 ```ini
 # Se to false to disable password policy.
@@ -67,4 +76,4 @@ PASSWORD_POLICY_ENABLED=false
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
 
-<a href="https://www.paypal.com/paypalme/mhi9388?locale.x=en_US"><img src="https://i.imgur.com/Y2gqr2j.png" height="40"></a>  
+<a href="https://www.paypal.com/paypalme/mhi9388?locale.x=en_US"><img src="https://i.imgur.com/Y2gqr2j.png" height="40"></a>
