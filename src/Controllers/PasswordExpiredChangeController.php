@@ -7,6 +7,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rules\Password;
 
 class PasswordExpiredChangeController extends Controller
 {
@@ -27,7 +28,7 @@ class PasswordExpiredChangeController extends Controller
     {
         Validator::make($request->all(), [
             'current_password' => ['required'],
-            'password' => ['required', 'string', config('lara-pass-policy.strict', new \Illuminate\Validation\Rules\Password(8)), 'confirmed',
+            'password' => ['required', 'string', 'confirmed', (new Password(8))::defaults(),
                 function ($attribute, $value, $fail) {
                     if (request()->user()->isPasswordHistoryMatchWith($value)) {
                         $fail(__(config('lara-pass-policy.messages.same-password')));
