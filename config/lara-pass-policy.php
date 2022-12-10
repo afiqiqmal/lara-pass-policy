@@ -3,14 +3,14 @@
 return [
 
     /*
-   |--------------------------------------------------------------------------
-   | Pass policy enabled
-   |--------------------------------------------------------------------------
-   |
-   | This configuration is used to enable the password policy,
-   | if set to false, the middleware will be bypassed
-   |
-   */
+    |--------------------------------------------------------------------------
+    | Pass policy enabled
+    |--------------------------------------------------------------------------
+    |
+    | This configuration is used to enable the password policy,
+    | if set to false, the middleware will be bypassed
+    |
+    */
 
     'enabled' => env('PASSWORD_POLICY_ENABLED', true),
 
@@ -28,29 +28,29 @@ return [
     'guard' => 'cms',
 
     /*
-   |--------------------------------------------------------------------------
-   | Pass policy Routes Middleware
-   |--------------------------------------------------------------------------
-   |
-   | Here you may specify which middleware Pass policy will assign to the routes
-   | that it registers with the application. If necessary, you may change
-   | these middleware but typically this provided default is preferred.
-   |
-   */
+    |--------------------------------------------------------------------------
+    | Pass policy Routes Middleware
+    |--------------------------------------------------------------------------
+    |
+    | Here you may specify which middleware Pass policy will assign to the routes
+    | that it registers with the application. If necessary, you may change
+    | these middleware but typically this provided default is preferred.
+    |
+    */
 
     'middleware' => ['cms'],
 
     'prefix' => 'cms',
 
     /*
-   |--------------------------------------------------------------------------
-   | Password period
-   |--------------------------------------------------------------------------
-   |
-   | This configuration is used to notify user if the password used
-   | is expired and need to change the password
-   |
-   */
+    |--------------------------------------------------------------------------
+    | Password period
+    |--------------------------------------------------------------------------
+    |
+    | This configuration is used to notify user if the password used
+    | is expired and need to change the password
+    |
+    */
 
     'password_lifetime' => 60, //days
 
@@ -62,14 +62,14 @@ return [
     ], // not set will set to last 1 day
 
     /*
-   |--------------------------------------------------------------------------
-   | Password history depth check
-   |--------------------------------------------------------------------------
-   |
-   | This configuration is used to check n previous password histories
-   | against when changing/resetting a password
-   |
-   */
+    |--------------------------------------------------------------------------
+    | Password history depth check
+    |--------------------------------------------------------------------------
+    |
+    | This configuration is used to check n previous password histories
+    | against when changing/resetting a password
+    |
+    */
 
     'depth' => 6,
 
@@ -97,27 +97,12 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Password Policy Strict
+    | Password Policy Redirection and Views
     |--------------------------------------------------------------------------
     |
     | This configuration is used to
     |
     */
-
-    'strict' => \Illuminate\Validation\Rules\Password::min(8)
-        ->mixedCase()
-        ->numbers()
-        ->symbols()
-        ->uncompromised(),
-
-    /*
-   |--------------------------------------------------------------------------
-   | Password Policy Redirection and Views
-   |--------------------------------------------------------------------------
-   |
-   | This configuration is used to
-   |
-   */
 
     'redirects' => [
         'password-changed' => null,

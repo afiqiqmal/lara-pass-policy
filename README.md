@@ -60,12 +60,21 @@ Route::middleware(['auth', 'password_changed'])->group(function () {
 });
 ```
 
-#### You may want to disable password policy on specific environment (ex. `local`) setting this variable in `.env` file:
+## Disable in some environment.
+If you want to disable Password Policy on specific environment (ex: `local`) set to `false` this variable in `.env` file:
 
 ```ini
-# Se to false to disable password policy.
+# Set to false to disable password policy.
 PASSWORD_POLICY_ENABLED=false
 ```
+
+## Validation rules.
+If you need to apply your own default password rules, you should define a `defaults` callback within the boot method
+of one of your application's service providers, as described in
+[Laravel docs](https://laravel.com/docs/master/validation#defining-default-password-rules): this package
+will validate new passwords against those defaults.
+
+---
 
 ## Credits
 
