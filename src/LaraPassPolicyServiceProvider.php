@@ -32,7 +32,7 @@ class LaraPassPolicyServiceProvider extends ServiceProvider
 
         $this->publishes([
             __DIR__.'/../resources/views/auth' => resource_path('views/auth'),
-        ]);
+        ], 'views');
     }
 
     public function register()
