@@ -26,12 +26,11 @@ You can publish the config file with:
 php artisan vendor:publish --provider="Afiqiqmal\LaraPassPolicy\LaraPassPolicyServiceProvider" --tag="config"
 ```
 
-You can publish the views files with:
+You can publish the view file with:
 ```bash
 php artisan vendor:publish --provider="Afiqiqmal\LaraPassPolicy\LaraPassPolicyServiceProvider" --tag="views"
 ```
-Then, in the `resources/views/auth` you can find two view files `verify-password-change-*.blade.php`: you should take only one, rename it `verify-password-change.blade.php`, according to your [Starter Kit](https://laravel.com/docs/master/starter-kits) installation (and customize it as you like).
-The view name must match the one defined in `config/lara-pass-policy.views.password-changed` option.
+and customize as you like the view `resources/views/auth/verify-password-change.blade.php` (the view name must match the one defined in `config/lara-pass-policy.views.password-changed`).
 
 ## Usage
 
