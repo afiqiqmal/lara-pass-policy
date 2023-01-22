@@ -67,12 +67,22 @@ Route::middleware(['auth', 'password_changed'])->group(function () {
 });
 ```
 
-## Disable in some environment.
+## Translations.
+You may translate the package string messages (defined in config `lara-pass.messages`) adding the translated strings in `lang/<locale>.json` files.
+
+## Environment settings.
 If you want to disable Password Policy on specific environment (ex: `local`) set to `false` this variable in `.env` file:
 
 ```ini
 # Set to false to disable password policy.
 PASSWORD_POLICY_ENABLED=false
+```
+
+You may also customize the number of days before the passwords expire setting the variable in `.env` file:
+
+```ini
+# Set to false to disable password policy.
+PASSWORD_LIFETIME=30
 ```
 
 ## Validation rules.
