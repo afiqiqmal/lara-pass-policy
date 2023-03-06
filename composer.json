@@ -11,9 +11,9 @@
     ],
     "require": {
         "php": "^7.4|^8.0",
-        "illuminate/contracts": "^7 || ^8 || ^9",
-        "illuminate/support": "^7 || ^8 || ^9",
-        "illuminate/auth": "^7 || ^8 || ^9"
+        "illuminate/contracts": "^7 || ^8 || ^9 || ^10",
+        "illuminate/support": "^7 || ^8 || ^9 || ^10",
+        "illuminate/auth": "^7 || ^8 || ^9 || ^10"
     },
     "require-dev": {
         "nunomaduro/collision": "^5.3",
