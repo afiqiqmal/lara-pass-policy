@@ -48,11 +48,11 @@ return [
     |--------------------------------------------------------------------------
     |
     | This configuration is used to notify user if the password used
-    | is expired and need to change the password
+    | is expired and need to change the password.
     |
     */
 
-    'password_lifetime' => 60, //days
+    'password_lifetime' => env('PASSWORD_LIFETIME', 30), // days
 
     'reminder_password_to_change' => [
         1, // last 1 days
