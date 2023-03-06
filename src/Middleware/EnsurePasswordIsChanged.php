@@ -19,7 +19,11 @@ class EnsurePasswordIsChanged
      */
     public function handle($request, Closure $next, $redirectToRoute = null)
     {
-        if (! $request->user() || ($request->user() instanceof MustVerifyPasswordPolicy && $request->user()->isPasswordExpired())) {
+        if (
+            config('lara-pass-policy.enabled')
+            && $request->user() instanceof MustVerifyPasswordPolicy
+            && $request->user()->isPasswordExpired()
+        ) {
             return $request->expectsJson()
                 ? abort(403, __(config('lara-pass-policy.messages.expired')))
                 : Redirect::guest(URL::route($redirectToRoute ?: 'password_change.notice'));
