@@ -26,11 +26,16 @@ You can publish the config file with:
 php artisan vendor:publish --provider="Afiqiqmal\LaraPassPolicy\LaraPassPolicyServiceProvider" --tag="config"
 ```
 
-You can publish the view file with:
+Out of the box, this package provide a view (Blade and Vue templates) to allow users to change own password.
+If you want to customize the default page you can publish the views with:
 ```bash
 php artisan vendor:publish --provider="Afiqiqmal\LaraPassPolicy\LaraPassPolicyServiceProvider" --tag="views"
 ```
-and customize as you like the view `resources/views/auth/verify-password-change.blade.php` (the view name must match the one defined in `config/lara-pass-policy.views.password-changed`).
+and customize as you like in: 
+- `resources/views/auth/verify-password-change.blade.php`, for standard stack (Blade templates)
+- `resource/js/Pages/Auth/VerifyPasswordChange.vue`, if your stack integrate [Inertia](https://inertiajs.com)
+
+Then, be sure to specify the view name in `config/lara-pass-policy.views.password-changed`.
 
 ## Usage
 
