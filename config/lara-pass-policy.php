@@ -55,7 +55,7 @@ return [
     'password_lifetime' => env('PASSWORD_LIFETIME', 30), // days
 
     'reminder_password_to_change' => [
-        1, // last 1 days
+        1, // last 1 day
         5, // last 5 days
         10, // last 10 days
         15, // last 15 days
@@ -78,7 +78,7 @@ return [
     | Password History Table Configurations
     |--------------------------------------------------------------------------
     |
-    | This configuration is used to
+    | The PasswordHistory model class.
     |
     */
 
@@ -89,7 +89,7 @@ return [
     | Password Policy Observer
     |--------------------------------------------------------------------------
     |
-    | This configuration is used to
+    | The observer class watching on User model changes.
     |
     */
 
@@ -97,7 +97,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Password Policy Redirection and Views
+    | Password Policy Redirection
     |--------------------------------------------------------------------------
     |
     | This configuration is used to
@@ -107,6 +107,27 @@ return [
     'redirects' => [
         'password-changed' => null,
     ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Password Policy View
+    |--------------------------------------------------------------------------
+    |
+    | This view will be used by the user to change its own password when expired.
+    | If you want to integrate Inertia, here you have to specify the page you
+    | created in `resource/js/Page folder` (see https://inertiajs.com/pages).
+    |
+    | Examples:
+    |   - standard stack (Blade templates):
+    |     'views' => [
+    |         'password-changed' => 'auth.verify_password_change',
+    |     ],
+    |
+    |   - Inertia stack (Vue/React/Svelte templates):
+    |     'views' => [
+    |         'password-changed' => 'Auth/VerifyPasswordChange',
+    |     ],
+    */
 
     'views' => [
         'password-changed' => 'auth.verify-password-change'
