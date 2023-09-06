@@ -37,6 +37,9 @@ and customize as you like in:
 
 Then, be sure to specify the view name in `config/lara-pass-policy.views.password-changed`.
 
+__NOTE:__ Currently, only Vue stack are supported out of the box: for React/Svelte stack you must create a new page 
+component in `resources/js/Pages/Auth`, just like the Vue page provided.
+
 ## Usage
 
 #### Add `HasPasswordPolicy` trait to the authenticable model
