@@ -15,13 +15,17 @@ class PasswordExpiredChangeController extends Controller
      * Display the email verification prompt.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\RedirectResponse
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\RedirectResponse|\Inertia\Response
      */
     public function index(Request $request)
     {
-        return !$request->user()->isPasswordExpired()
-            ? redirect()->intended(config('lara-pass-policy.redirects.password-changed'))
-            : view(config('lara-pass-policy.views.password-changed'));
+        if (! $request->user()->isPasswordExpired()) {
+            return redirect()->intended(config('lara-pass-policy.redirects.password-changed'));
+        }
+
+        $view = config('lara-pass-policy.views.password-changed');
+
+        return is_callable('inertia') ? inertia($view) : view($view);
     }
 
     public function store(Request $request)
