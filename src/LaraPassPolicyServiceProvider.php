@@ -28,8 +28,6 @@ class LaraPassPolicyServiceProvider extends ServiceProvider
 
         $this->loadRoutesFrom(__DIR__.'/../routes/lara-pass.php');
 
-        $this->loadViewsFrom(__DIR__.'/../resources/views/auth', 'lara-pass-policy');
-
         $this->publishes([
             __DIR__.'/../resources/views/auth' => resource_path('views/auth'),
             __DIR__.'/../resources/js/Pages/Auth' => resource_path('js/Pages/Auth'),
